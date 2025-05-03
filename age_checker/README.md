@@ -1,33 +1,36 @@
-# 🧓 Age Validator (Python) with Retry Limit
+# 🧑‍💻 Python Login and Menu System
 
-A simple Python program that asks the user for their age, validates the input, and allows access only if the user is 18 or older.  
-The program includes a retry limit (3 attempts) to avoid infinite loops or abuse.
+A simple terminal-based Python program that simulates a user login system with input validation, retry limits, and a basic menu interface. Built for beginner-level practice using lists, functions, loops, and dictionaries.
 
 ---
 
 ## 🚀 Features
 
-- 🧠 Input validation with `try/except`
-- 🔁 Allows up to 3 attempts before exiting
-- 🔞 Enforces minimum age requirement (18+)
-- 🧼 Clean function-based logic
-- 📝 Console-based interaction
+- 🔒 Login verification using name and age
+- 🔁 Retry limit (max 3 attempts) on failed login or input errors
+- 🧠 Cleanly organized functions for reuse
+- 🧾 Add new users with age
+- 📋 View existing users and their ages
+- 🔚 Exit program safely
 
 ---
 
-## 📋 How It Works
+## 🧪 How It Works
 
-1. The user is prompted to enter their age
-2. If the input is not a number, they are asked again
-3. If the age is less than 18, access is denied
-4. If the age is valid (18+), access is granted
-5. If the user enters invalid data 3 times, the program exits
+1. User is asked to **log in** with their name and age
+2. If the credentials match an entry in the system:
+   - Access is granted to the main menu
+3. The user can then:
+   - Add new users with age validation
+   - View the current list of users
+   - Exit the program
+4. If login fails more than 3 times, access is denied
 
 ---
 
 ## 🖥️ How to Run
 
-Make sure Python is installed, then run:
+Make sure you have Python installed (v3+). Then run:
 
 ```bash
 python main.py
