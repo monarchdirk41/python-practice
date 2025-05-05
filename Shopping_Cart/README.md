@@ -1,16 +1,17 @@
-# 🛒 Python Shopping Cart Menu System
+# 🛒 Python Shopping Cart System
 
-This is a simple terminal-based shopping cart program written in Python. It features a basic menu interface that allows users to add items, view the cart, and checkout — all using functions, loops, and lists.
+This is a beginner-friendly Python terminal app that simulates a basic shopping experience. Users can add items with prices, view their cart, delete items by number, and checkout — all via a simple numbered menu.
 
 ---
 
 ## ✨ Features
 
-- 🧾 Add items to the shopping cart
-- 👀 View the list of items currently in the cart
-- 📦 Checkout to count total items
-- 🔁 Menu runs in a continuous loop until user exits
-- ✅ Input validation for numbers and empty strings
+- ✅ Add items with price to the shopping cart
+- 🔢 View cart with auto-numbered items and prices
+- 🗑️ Remove items by selecting the number (with confirmation)
+- 🧾 Checkout shows how many items are in the cart
+- 🧠 Input validation (e.g., no blank item names, price must be a number)
+- 🔁 Runs in a loop until user chooses to exit
 
 ---
 
@@ -18,51 +19,66 @@ This is a simple terminal-based shopping cart program written in Python. It feat
 
 1. Add Item
 2. View Cart
-3. Checkout
-4. Exit
+3. Remove Item
+4. Checkout
+5. Exit
 
 ---
 
 ## 🧠 What You’ll Learn
 
-- `for` loops and `count` patterns
-- Using `enumerate()` to display list items with numbers
-- Basic input validation with `try/except`
-- List operations like `.append()` and `.strip()`
-- Function design and menu control flow
+- Using `for` loops and `enumerate()` for numbered lists
+- Managing two synced lists (`cart[]` and `price[]`)
+- Handling input and errors with `try/except`
+- Working with functions for clean, reusable code
+- `del` for list element deletion by index
 
 ---
 
 ## ▶️ How to Run
 
-Make sure you have Python 3 installed.  
-Then run the script using:
+Make sure Python 3 is installed. Then, run the program:
 
 ```bash
 python shopping_cart.py
 
 
+Sample Output
 
-Enter Selection 1, 2, 3, or 4: 1
-Enter Item To Add: Milk
-✅ You added Milk to your shopping cart!
+----Menu----
+1. Add Item
+2. View Cart
+3. Remove Item
+4. Checkout
+5. Exit
+Enter Selection 1, 2, 3, 4 or 5: 2
 
-Enter Selection 1, 2, 3, or 4: 2
-🧾 Items in your cart:
-1. Towel
-2. Eggs
-3. Bread
-4. Butter
-5. Milk
+Items in your cart:
+1. Item: Towel -- Price: $2.0
+2. Item: Eggs -- Price: $1.5
 
-Enter Selection 1, 2, 3, or 4: 3
-🧺 You have 5 item(s) in your cart. Ready to checkout!
+Enter Selection 1, 2, 3, 4 or 5: 3
+Enter the number you want to delete: 2
+Are you sure you want to remove Eggs from your cart? Y/N: Y
+✅ You removed Eggs from your shopping cart.
+
+
 
 📌 Future Ideas
--Add prices and calculate total cost
--Allow item deletion
+-Total cost calculation at checkout
+-Quantity per item
 -Save cart to a file
--Track quantities of each item
+-Load previous sessions
+-Item category filters
+
+
+👨‍🎓 Built For Learning
+This app was created to strengthen understanding of:
+-Python lists
+-Input handling
+-enumerate(), zip(), and del
+-Function-based program flow
+
 
 🙋‍♀️ Author
 This was created as a learning project while practicing Python fundamentals such as loops, lists, and function control. Perfect for anyone just getting started with coding!
