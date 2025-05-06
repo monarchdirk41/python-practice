@@ -2,6 +2,7 @@ cart = ['Towel', 'Eggs', 'Bread', 'Butter']
 price = [2.00, 1.50, 2.00, 2.50]
 
 
+
 def output():
     try:
         print("----Menu----")
@@ -42,6 +43,7 @@ def add_item():
 
 
 
+
 def del_item():
     view_cart()
     delete_item = int(input("Enter the number you want to delete: "))
@@ -58,20 +60,27 @@ def del_item():
        print("Please Enter the right value")
 
 
+
 def view_cart():
     if not cart:
         print("Your cart is empty.")
     else:
 
         print("Items in your cart:")
+        #test = dict(zip(cart, price))
         for i, (item, cost) in enumerate(zip(cart, price), start=1):
             print(f"{i}.Item: {item} -- Price: ${cost}")
 
 
 def checkout():
     items = len(cart)
-    print(f"You have {items} number of items!")
+    total = compute_total()
 
+    print(f"You have {items} number of items!")
+    print(f"Total Amount: ${total:.2f}")
+
+def compute_total():
+    return sum(price)
 
 
 while True:
