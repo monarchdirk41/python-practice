@@ -1,21 +1,21 @@
-# 🛒 Python Shopping Cart App
+# 🛒 Python Shopping Cart App (With Quantity & Total Cost)
 
-A beginner-friendly, terminal-based shopping cart system written in Python. This interactive program allows users to add items with prices, view their cart, remove items by number, and checkout with total cost calculation.
+A beginner-friendly terminal-based shopping cart program written in Python. This interactive app allows users to add items with price and quantity, view their cart with auto-calculated subtotals, remove items, and checkout with a computed total cost.
 
 ---
 
 ## ✨ Features
 
-- ✅ Add items with prices to your cart
-- 🔢 View numbered list of items and prices
+- ✅ Add items to cart with price and quantity
+- 🔢 View cart with numbered list, showing item × quantity = subtotal
 - 🗑️ Remove items by selecting their number (with confirmation)
-- 🧮 Checkout displays total number of items and total cost
-- 💡 Input validation for empty entries and incorrect types
-- 🔁 Loops until user chooses to exit
+- 🧮 Checkout calculates total number of items and total price
+- 🧠 Input validation for blank inputs, invalid numbers, and prices
+- 🔁 Runs continuously until user selects Exit
 
 ---
 
-## 📋 Menu Overview
+## 📋 Menu Options
 
 1. Add Item
 2. View Cart
@@ -47,56 +47,48 @@ Sample Output
 
 ----Menu----
 
-Add Item
-View Cart
-Remove Item
-Checkout
-Exit
-Enter Selection 1, 2, 3, 4 or 5: 2
+1.Add Item
+2.View Cart
+3.Remove Item
+4.Checkout
+5.Exit
+Enter Selection 1, 2, 3, 4 or 5: 1
 
-Items in your cart:
-Item: Towel -- Price: $2.00
-Item: Bread -- Price: $1.50
+Enter Item To Add: Milk
+Enter price of Item: 2.25
+Enter Quantity: 3
+✅ Added 3 x Milk at $2.25 each.
 
-Enter Selection 1, 2, 3, 4 or 5: 4
-🧾 You have 2 item(s) in your cart.
-💰 Total amount: $3.50
 
 ---
 
-## 🧠 What You'll Learn
+## 🧠 What You'll Practice
 
-- `for` loops and `enumerate()` for listing items
-- Managing parallel lists (`cart[]` and `price[]`)
-- Using `del` to delete paired data at the same index
-- Creating reusable functions for clean logic
-- Handling user input with `try/except` blocks
-- Summing values using `sum()` or accumulation
+- Using multiple lists (`cart`, `price`, `quantity`) in sync
+- Looping with `enumerate()` and `zip()`
+- Calculating subtotals and overall total
+- Validating user inputs using `try/except`
+- Removing list items safely by index
 
 ---
 
 ## ▶️ How to Run
 
-Make sure Python 3 is installed. Then, run the script:
+Make sure Python 3 is installed on your system. Then run:
 
 ```bash
 python shopping_cart.py
 
-📦 Possible Enhancements
-🧮 Add tax computation
-📝 Save cart to a file (session persistence)
-➕ Add quantities per item
-📊 Show itemized cost breakdown (item x quantity = total)
-🧹 Clear cart or undo last action
+🔮 Future Enhancements
+💰 Show tax or apply discount logic
+🧾 Save and load cart items from a file
+🧩 Track stock or product codes
+🔄 Undo last action
+📊 Show cart summary sorted by total cost
 
 
-🎓 Created For
--This project was designed to solidify beginner Python skills including:
--Lists & loops
--Functions
--Conditional logic
--Data cleanup & validation
--Building real-world terminal apps
+👨‍🎓 Built For Learning
+This app was created as a learning project to master Python fundamentals such as lists, loops, function structure, and clean user input handling.
 
 🙋‍♀️ Author
 This was created as a learning project while practicing Python fundamentals such as loops, lists, and function control. Perfect for anyone just getting started with coding!
