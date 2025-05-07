@@ -1,5 +1,6 @@
 cart = ['Towel', 'Eggs', 'Bread', 'Butter']
 price = [2.00, 1.50, 2.00, 2.50]
+quantity = [1, 2, 2, 4]
 
 
 
@@ -30,16 +31,21 @@ def output():
 
 
 def add_item():
-    item_add = input("Enter Item To Add: ")
-    item_price = float(input("Enter price of Item: "))
-    if not item_add:
-        print(f"Your item is empty, please add items")
-    elif not item_price:
-        print(f"Your item price is empty, please add price")
-    else:
-        cart.append(item_add)
-        price.append(item_price)
-        print(f"You added {item_add} with the price of {item_price} to your shopping cart!")
+    try:
+        item_add = input("Enter Item To Add: ")
+        item_price = float(input("Enter price of Item: "))
+        item_qty = int(input("Enter Quantity: "))
+        if not item_add:
+            print(f"Your item is empty, please add items")
+        elif item_price <=0 or item_qty <=0:
+            print(f"Your item price and quantity is empty, please add price and quantity")
+        else:
+            cart.append(item_add)
+            price.append(item_price)
+            quantity.append(item_qty)
+            print(f"Added {item_qty} x {item_add} at ${item_price:.2f} each.")
+    except ValueError:
+        print("Please enter the valid numbers for prince and quantity.")
 
 
 
@@ -68,19 +74,22 @@ def view_cart():
 
         print("Items in your cart:")
         #test = dict(zip(cart, price))
-        for i, (item, cost) in enumerate(zip(cart, price), start=1):
-            print(f"{i}.Item: {item} -- Price: ${cost}")
+        for i, (item, cost, qty) in enumerate(zip(cart, price, quantity), start=1):
+            total = cost * qty
+            print(f"{i}.Item: {item} -- ${cost:.2f} x {qty} = ${total:.2f} ")
 
 
 def checkout():
-    items = len(cart)
+    items = sum(quantity)
     total = compute_total()
-
-    print(f"You have {items} number of items!")
+    print(f"You have {items} item(s) number of items.")
     print(f"Total Amount: ${total:.2f}")
 
 def compute_total():
-    return sum(price)
+    total = 0
+    for index in range(len(price)):
+        total += price[index] * quantity[index]
+    return total
 
 
 while True:
