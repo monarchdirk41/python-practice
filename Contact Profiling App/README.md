@@ -26,7 +26,7 @@ A beginner-to-intermediate Python terminal app that allows users to manage and s
 3. Search Contact
 4. Exit
 
-Within "Search Contact":
+Within "Search Contact"
 
 1. Name
 2. Status
