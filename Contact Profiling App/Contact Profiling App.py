@@ -1,4 +1,3 @@
-
 contacts = {
             "James": {"Email": "test@test.com", "Status": "cold", "Phone": "09171177387"},
             "Chaki": {"Email": "chaki@test.com", "Status": "lead", "Phone": "6849321"},
@@ -108,17 +107,96 @@ def show_phone():
 
 
 
+def delete_contact():
+    display_contact()
+
+    print("--Delete Contact By:--")
+    print("1. Name")
+    print("2. Email")
+    print("3. Phone")
+    print("4. Exit")
+
+    try:
+        choice = int(input("Enter your choice: "))
+        if choice == 1:
+            delete_by_name()
+        elif choice == 2:
+            delete_by_field("Email")
+        elif choice == 3:
+            delete_by_field("Phone")
+        elif choice == 4:
+            print("Exit delete")
+        else:
+            print("Invalid selection.")
+            delete_contact()
+    except ValueError:
+        print("Please enter a number.")
+        delete_contact()
+
+
+
+
+
+def delete_by_field(field):
+    search_value = input(f"Enter {field.lower()} to search and delete (or X to exit): ").strip()
+    if search_value.upper() == "X":
+        return
+
+    found = None
+    for name, info in contacts.items():
+        if info.get(field, "").lower() == search_value.lower():
+            found = name
+            break
+
+    if found:
+        confirm = input(f"Delete contact '{found}' with {field}: {search_value}? (Y/N): ").strip().upper()
+        if confirm == "Y":
+            del contacts[found]
+            print(f"{found} has deleted.")
+        else:
+            print("Deletion cancelled.")
+    else:
+        print(f"No contact found with that {field.lower()}.")
+        delete_by_field(field)
+
+
+
+
+def delete_by_name():
+
+    enter_selection = input("Please enter a contact to delete or enter X to exit: ").title().strip()
+    if enter_selection == "X":
+        print("Exiting Delete contact.")
+        return
+
+    if enter_selection not in contacts:
+        print("Contact does not exits. Please check the name and try again.")
+        return delete_contact()
+
+
+    confirmation = input(f"Are you sure you want to delete {enter_selection}? (Y/N): ").strip().upper()
+    if confirmation == "Y":
+        del contacts[enter_selection]
+        print(f"{enter_selection} have successfully deleted.")
+        display_contact()
+    elif confirmation == "N":
+        print("Deletion Cancelled.")
+    else:
+        print("Invalid input. Please enter Y or N.")
+        return delete_contact()
+
+
 def output():
     while True:
         try:
-
             print("---Contact Profiling---")
             print("1. Add New Contact")
             print("2. View Contacts")
             print("3. Search Contact")
-            print("4. Show Contacts with Phone Numbers")
-            print("5. Exit")
-            enter_selection = int(input("Enter your selections (1, 2, 3, or 4):"))
+            print("4. Delete Contact")
+            print("5. Show Contacts with Phone Numbers")
+            print("6. Exit")
+            enter_selection = int(input("Enter your selections (1, 2, 3, 4, 5, or 6):"))
 
 
             if enter_selection == 1:
@@ -128,15 +206,15 @@ def output():
             elif enter_selection == 3:
                 search_by()
             elif enter_selection == 4:
-                show_phone()
+                delete_contact()
             elif enter_selection == 5:
+                display_contact()
+            elif enter_selection == 6:
                 exit()
             else:
                 print("Invalid input, please enter 1, 2, 3 or 4")
         except ValueError:
             print("Please enter a number value.")
-
-
 
 
 
